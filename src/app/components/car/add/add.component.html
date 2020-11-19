@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 col-xl-9 mx-auto">
+            <div class="card card-signin flex-row my-5">
+                <div class="card-img-left d-none d-md-flex">
+                    <!-- Background image for card set in CSS! -->
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title text-center">Add Car</h5>
+                    <form class="form-add-car" #addCarForm="ngForm" (ngSubmit)="registerCar()">
+                        <div class="form-group">
+                            <label for="brand" class="form-label">Brand</label>
+                            <input type="text" id="brand" name="brand" #brand="ngModel"
+                                [(ngModel)]="car.brand" class="form-control" placeholder="Brand" required autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label for="model" class="form-label">Model</label>
+                            <input type="text" id="model" name="model" #model="ngModel" [(ngModel)]="car.model"
+                                class="form-control" placeholder="Model" required autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label for="year" class="form-label">Year</label>
+                            <input type="number" id="year" name="year" #year="ngModel"
+                                [(ngModel)]="car.year" class="form-control" placeholder="Year" required
+                                autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label for="licensePlate" class="form-label">License Plate</label>
+                            <input type="text" id="licensePlate" name="licensePlate" #licensePlate="ngModel"
+                                [(ngModel)]="car.licensePlate" class="form-control" placeholder="P-504EXP example" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="state" class="form-label">State</label>
+                            <select type="text" id="state" name="state" [(ngModel)]="car.state" class="form-control"
+                                placeholder="State">
+                                <option *ngFor="let stateEn of statesEn; let i = index" [value]="state[i]">
+                                    {{ stateEn.name }}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <button class="btn btn-success btn-block" type="submit">Register</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <button class="btn btn-outline-secondary btn-block" routerLink="/cars">Cancel</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

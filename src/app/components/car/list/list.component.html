@@ -1,0 +1,45 @@
+<app-navbar></app-navbar>
+<div class="container-fluid">
+    <div class="cars-list">
+        <div class="card header mt-3 pt-1 bg-info shadow-lg">
+            <h1 class="title text-center text-white">Cars</h1>
+        </div>
+        <div class="container-fluid card justify-content-center mt-4 py-3 shadow-lg">
+            <table class="table table-responsive table-hover">
+                <thead class="thead-dark text-center">
+                    <tr class="">
+                        <th scope="col">#</th>
+                        <th scope="co l">Brand</th>
+                        <th scope="col">Model</th>
+                        <th scope="col">year</th>
+                        <th scope="col">licensePlate</th>
+                        <th scope="col">state</th>
+                        <th scope="col">CRUD</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    <tr *ngFor="let car of cars; let i = index">
+                        <th scope="row">{{ i + 1 }}</th>
+                        <td>{{ car.brand }}</td>
+                        <td>{{ car.model }}</td>
+                        <td>{{ car.year }}</td>
+                        <td>{{ car.licensePlate }}</td>
+                        <td>{{ car.state }}</td>
+                        <td>
+                            <button class="btn btn-primary btn-sm mr-1 mt-1"
+                                [routerLink]="['/cars/view', car._id]">View</button>
+                            <button class="btn btn-warning btn-sm mr-1 mt-1"
+                                [routerLink]="['/cars/update', car._id]">Update</button>
+                            <button class="btn btn-danger btn-sm mt-1"
+                                [routerLink]="['/cars/delete', car._id]">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="shadow-lg add-button btn-circle">
+    <button class="btn btn-success btn-sm add-button btn-circle" data-toggle="tooltip" data-placement="top"
+        title="button to add car" [routerLink]="['/cars/add']">+</button>
+</div>
